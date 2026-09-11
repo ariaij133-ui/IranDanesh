@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>دانش‌نما | دانشنامه علمی</title>
+<meta name="description" content="دانشنامه علمی فارسی درباره فضا، فیزیک، زیست‌شناسی، زمین‌شناسی و فناوری.">
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#080d19;color:#edf3ff;font-family:Tahoma,Arial,sans-serif;line-height:2}
+header{position:sticky;top:0;z-index:20;background:rgba(8,13,25,.95);border-bottom:1px solid #26334f;backdrop-filter:blur(12px)}
+.nav{max-width:1150px;margin:auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:25px;font-weight:bold}.logo b{color:#61dafb}
+.nav a{color:#bfcbe0;text-decoration:none;margin-right:15px}
+.hero{max-width:1000px;margin:auto;text-align:center;padding:60px 20px 35px}
+.hero h1{font-size:clamp(34px,8vw,60px);margin:8px 0}.hero p{color:#b8c4d9;font-size:18px}
+.search{display:flex;max-width:800px;margin:25px auto 0;background:#111a2d;border:1px solid #354361;border-radius:16px;padding:7px}
+.search input{flex:1;background:none;border:0;outline:0;color:white;font-size:17px;padding:14px}
+.search button{background:#61dafb;border:0;border-radius:11px;padding:0 20px;font-weight:bold}
+.results{max-width:800px;margin:8px auto;text-align:right}.result{display:block;background:#111a2d;border:1px solid #2d3b5b;padding:10px 14px;border-radius:10px;margin-top:6px;color:white;text-decoration:none}
+.container{max-width:1150px;margin:auto;padding:20px}h2{font-size:30px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.card{background:#111a2d;border:1px solid #283654;border-radius:16px;padding:20px;transition:.2s}.card:hover{transform:translateY(-3px);border-color:#61dafb}
+.card h3{margin:8px 0;font-size:21px}.card p{color:#b9c5d8}.tag{color:#61dafb;background:#192943;border-radius:20px;padding:3px 10px;font-size:13px}
+.card button{border:1px solid #405273;background:#17233b;color:#fff;border-radius:9px;padding:8px 12px;cursor:pointer}
+#reader{display:none;max-width:900px;margin:35px auto;padding:20px}#reader .box{background:#111a2d;border:1px solid #2b3958;border-radius:16px;padding:25px}
+#reader h1{font-size:38px}#reader h2{color:#61dafb;font-size:25px}#reader p{color:#d1d9e7;font-size:17px}
+.back{color:#61dafb;border:0;background:none;cursor:pointer;font-size:16px}
+footer{text-align:center;border-top:1px solid #26334f;margin-top:50px;padding:30px;color:#9ba9c0}
+@media(max-width:650px){.nav a{display:none}.hero{padding-top:35px}.search button{padding:0 13px}}
+</style>
+</head>
+<body>
+<header><div class="nav"><div class="logo">🔬 دانش<b>‌نما</b></div><div><a href="#topics">موضوعات</a><a href="#about">درباره</a></div></div></header>
+
+<main>
+<section class="hero">
+<div class="tag">دانشنامه علمی فارسی</div>
+<h1>دنیا را علمی‌تر بشناس 🌌</h1>
+<p>از سیاه‌چاله‌ها و ستاره‌ها تا اتم، DNA، زمین و هوش مصنوعی.</p>
+<form class="search" onsubmit="return false">
+<input id="q" placeholder="موضوع موردنظر را جستجو کن..." oninput="search()">
+<button>جستجو</button>
+</form>
+<div id="results" class="results"></div>
+</section>
+
+<section id="reader">
+<div class="box">
+<button class="back" onclick="closeArticle()">← برگشت به همه موضوعات</button>
+<div id="article"></div>
+</div>
+</section>
+
+<section id="topics" class="container">
+<h2>📚 موضوعات علمی</h2>
+<div class="grid"><article class="card"><span class="tag">نجوم</span><h3>سیاه‌چاله‌ها</h3><p>سیاه‌چاله ناحیه‌ای از فضاست که گرانش آن بسیار شدید است.</p><button onclick="openArticle(0)">مطالعه مقاله ←</button></article><article class="card"><span class="tag">نجوم</span><h3>منظومه شمسی</h3><p>منظومه شمسی سامانه‌ای شامل خورشید و مجموعه‌ای از سیارات و اجرام کوچک‌تر است.</p><button onclick="openArticle(1)">مطالعه مقاله ←</button></article><article class="card"><span class="tag">نجوم</span><h3>مریخ</h3><p>مریخ چهارمین سیاره از خورشید و یکی از نزدیک‌ترین همسایه‌های سیاره‌ای زمین است.</p><button onclick="openArticle(2)">مطالعه مقاله ←</button></article><article class="card"><span class="tag">نجوم</span><h3>خورشید</h3><p>خورشید ستاره‌ای در مرکز منظومه شمسی و منبع اصلی انرژی زمین است.</p><button onclick="openArticle(3)">مطالعه مقاله ←</button></article><article class="card"><span class="tag">نجوم</span><h3>ستاره‌ها</h3><p>ستاره‌ها اجرام عظیم و درخشانی هستند که انرژی خود را از فرایندهای هسته‌ای به دست می‌آورند.</p><button onclick="openArticle(4)">مطالعه مقاله ←</button></article><article class="card"><span class="tag">نجوم</span><h3>راه شیری</h3><p>راه شیری کهکشانی مارپیچی است که منظومه شمسی در آن قرار دارد.</p><button onclick="openArticle(5)">مطالعه مقاله ←</button></article><article class="card"><span class="tag">فضا</span><h3>تلسکوپ جیمز وب</h3><p>تلسکوپ فضایی جیمز وب برای مطالعه جهان در طول موج‌های عمدتاً فروسرخ طراحی شده است.</p><button onclick="openArticle(6)">مطالعه مقاله ←</button></article><article class="card"><span class="tag">فضا</span><h3>تلسکوپ هابل</h3><p>تلسکوپ فضایی هابل یکی از مشهورترین رصدخانه‌های فضایی تاریخ است.</p><button onclick="openArticle(7)">مطالعه مقاله ←</button></article><article class="card"><span class="tag">فضا</span><h3>ایستگاه فضایی بین‌المللی</h3><p>ایستگاه فضایی بین‌المللی یک آزمایشگاه پژوهشی در مدار پایین زمین است.</p><button onclick="openArticle(8)">مطالعه مقاله ←</button></article><article class="card"><span class="tag">فناوری فضایی</span><h3>ماهواره‌ها</h3><p>ماهواره جسمی است که به دور یک جرم آسمانی می‌گردد و می‌تواند طبیعی یا مصنوعی باشد.</p><button onclick="openArticle(9)">مطالعه مقاله ←</button></article><article class="card"><span class="tag">فضا</span><h3>وویجر ۱</h3><p>وویجر ۱ یکی از دورترین ساخته‌های بشر و یک فضاپیمای پژوهشی است.</p><button onclick="openArticle(10)">مطالعه مقاله ←</button></article><article class="card"><span class="tag">فضا</span><h3>وویجر ۲</h3><p>وویجر ۲ مأموریتی تاریخی برای بررسی مشتری، زحل، اورانوس و نپتون انجام داد.</p><button onclick="openArticle(11)">مطالعه مقاله ←</button></article><article class="card"><span class="tag">فیزیک</span><h3>اتم</h3><p>اتم واحد سازنده بسیاری از مواد است و از هسته و الکترون‌ها تشکیل می‌شود.</p><button onclick="openArticle(12)">مطالعه مقاله ←</button></article><article class="card"><span class="tag">فیزیک</span><h3>فیزیک کوانتومی</h3><p>فیزیک کوانتومی رفتار ماده و انرژی را در مقیاس‌های بسیار کوچک بررسی می‌کند.</p><button onclick="openArticle(13)">مطالعه مقاله ←</button></article><article class="card"><span class="tag">فیزیک</span><h3>نسبیت</h3><p>نظریه‌های نسبیت رابطه میان فضا، زمان، حرکت و گرانش را توضیح می‌دهند.</p><button onclick="openArticle(14)">مطالعه مقاله ←</button></article><article class="card"><span class="tag">زیست‌شناسی</span><h3>DNA</h3><p>DNA مولکولی است که اطلاعات ژنتیکی بسیاری از جانداران را ذخیره می‌کند.</p><button onclick="openArticle(15)">مطالعه مقاله ←</button></article><article class="card"><span class="tag">زیست‌شناسی</span><h3>سلول</h3><p>سلول کوچک‌ترین واحد ساختاری و عملکردی بسیاری از جانداران است.</p><button onclick="openArticle(16)">مطالعه مقاله ←</button></article><article class="card"><span class="tag">زمین‌شناسی</span><h3>آتشفشان</h3><p>آتشفشان ساختاری است که مواد داغ و گازهای درون زمین می‌توانند از آن به سطح برسند.</p><button onclick="openArticle(17)">مطالعه مقاله ←</button></article><article class="card"><span class="tag">زمین‌شناسی</span><h3>زلزله</h3><p>زلزله لرزش زمین بر اثر آزاد شدن ناگهانی انرژی در پوسته یا بخش‌های بالایی زمین است.</p><button onclick="openArticle(18)">مطالعه مقاله ←</button></article><article class="card"><span class="tag">فناوری</span><h3>هوش مصنوعی</h3><p>هوش مصنوعی مجموعه‌ای از روش‌ها برای ساخت سامانه‌هایی است که می‌توانند وظایفی مانند تشخیص الگو و پردازش زبان را انجام دهند.</p><button onclick="openArticle(19)">مطالعه مقاله ←</button></article></div>
+</section>
+
+<section id="about" class="container">
+<div class="card"><h2>درباره دانش‌نما</h2><p>دانش‌نما یک دانشنامه علمی فارسی است که موضوعات مختلف علمی را به زبان ساده معرفی می‌کند. هدف آن کمک به یادگیری و پیدا کردن سریع مطالب علمی است.</p></div>
+</section>
+</main>
+
+<footer>دانش‌نما © 2026</footer>
+
+<script>
+const data=[{"title": "سیاه‌چاله‌ها", "cat": "نجوم", "lead": "سیاه‌چاله ناحیه‌ای از فضاست که گرانش آن بسیار شدید است.", "body": "سیاه‌چاله‌ها معمولاً از فروپاشی ستاره‌های پرجرم یا فرایندهای بسیار پرانرژی شکل می‌گیرند. مرز مهم آن‌ها افق رویداد نام دارد؛ پس از عبور از آن، بازگشت به بیرون طبق فیزیک شناخته‌شده ممکن نیست."}, {"title": "منظومه شمسی", "cat": "نجوم", "lead": "منظومه شمسی سامانه‌ای شامل خورشید و مجموعه‌ای از سیارات و اجرام کوچک‌تر است.", "body": "هشت سیاره در منظومه شمسی وجود دارد. چهار سیاره داخلی سنگی و چهار سیاره بیرونی غول‌های گازی یا یخی هستند. سیارک‌ها، دنباله‌دارها و قمرها نیز بخش مهمی از این سامانه‌اند."}, {"title": "مریخ", "cat": "نجوم", "lead": "مریخ چهارمین سیاره از خورشید و یکی از نزدیک‌ترین همسایه‌های سیاره‌ای زمین است.", "body": "سطح مریخ سرد و خشک است و شواهد زمین‌شناسی نشان می‌دهد که در گذشته آب در آن جریان داشته است. مریخ یکی از مهم‌ترین اهداف پژوهش‌های سیاره‌ای است."}, {"title": "خورشید", "cat": "نجوم", "lead": "خورشید ستاره‌ای در مرکز منظومه شمسی و منبع اصلی انرژی زمین است.", "body": "انرژی خورشید عمدتاً از همجوشی هسته‌ای در هسته آن تولید می‌شود. نور و فعالیت خورشیدی بر زمین و محیط فضایی اطراف آن اثر می‌گذارند."}, {"title": "ستاره‌ها", "cat": "نجوم", "lead": "ستاره‌ها اجرام عظیم و درخشانی هستند که انرژی خود را از فرایندهای هسته‌ای به دست می‌آورند.", "body": "جرم ستاره نقش مهمی در دما، روشنایی، طول عمر و سرنوشت نهایی آن دارد. برخی ستاره‌ها در پایان عمر به کوتوله سفید، ستاره نوترونی یا سیاه‌چاله تبدیل می‌شوند."}, {"title": "راه شیری", "cat": "نجوم", "lead": "راه شیری کهکشانی مارپیچی است که منظومه شمسی در آن قرار دارد.", "body": "راه شیری شامل ستاره‌ها، گاز، غبار و ماده تاریک است و در مرکز آن یک سیاه‌چاله ابرپرجرم قرار دارد."}, {"title": "تلسکوپ جیمز وب", "cat": "فضا", "lead": "تلسکوپ فضایی جیمز وب برای مطالعه جهان در طول موج‌های عمدتاً فروسرخ طراحی شده است.", "body": "رصد فروسرخ به دانشمندان کمک می‌کند اجرام دور، ستاره‌های در حال شکل‌گیری و برخی ویژگی‌های جو سیارات فراخورشیدی را بررسی کنند."}, {"title": "تلسکوپ هابل", "cat": "فضا", "lead": "تلسکوپ فضایی هابل یکی از مشهورترین رصدخانه‌های فضایی تاریخ است.", "body": "هابل داده‌ها و تصاویر مهمی از کهکشان‌ها، سحابی‌ها، ستاره‌ها و پدیده‌های کیهانی فراهم کرده و در بسیاری از پژوهش‌های نجومی نقش داشته است."}, {"title": "ایستگاه فضایی بین‌المللی", "cat": "فضا", "lead": "ایستگاه فضایی بین‌المللی یک آزمایشگاه پژوهشی در مدار پایین زمین است.", "body": "در این ایستگاه آزمایش‌های علمی در شرایط ریزگرانش انجام می‌شود و اثر محیط فضایی بر مواد و سامانه‌های زیستی بررسی می‌شود."}, {"title": "ماهواره‌ها", "cat": "فناوری فضایی", "lead": "ماهواره جسمی است که به دور یک جرم آسمانی می‌گردد و می‌تواند طبیعی یا مصنوعی باشد.", "body": "ماهواره‌های مصنوعی برای ارتباطات، مکان‌یابی، هواشناسی، تصویربرداری زمین و پژوهش علمی استفاده می‌شوند."}, {"title": "وویجر ۱", "cat": "فضا", "lead": "وویجر ۱ یکی از دورترین ساخته‌های بشر و یک فضاپیمای پژوهشی است.", "body": "وویجر ۱ برای بررسی سیارات بیرونی پرتاب شد و پس از عبور از نواحی بیرونی منظومه شمسی، به مطالعه محیط میان‌ستاره‌ای کمک کرده است."}, {"title": "وویجر ۲", "cat": "فضا", "lead": "وویجر ۲ مأموریتی تاریخی برای بررسی مشتری، زحل، اورانوس و نپتون انجام داد.", "body": "این فضاپیما تنها مأموریتی است که از کنار هر چهار سیاره غول منظومه شمسی عبور کرده است."}, {"title": "اتم", "cat": "فیزیک", "lead": "اتم واحد سازنده بسیاری از مواد است و از هسته و الکترون‌ها تشکیل می‌شود.", "body": "هسته اتم شامل پروتون و نوترون است. تعداد پروتون‌ها نوع عنصر را تعیین می‌کند و آرایش الکترون‌ها نقش مهمی در رفتار شیمیایی آن دارد."}, {"title": "فیزیک کوانتومی", "cat": "فیزیک", "lead": "فیزیک کوانتومی رفتار ماده و انرژی را در مقیاس‌های بسیار کوچک بررسی می‌کند.", "body": "در فیزیک کوانتومی مفاهیمی مانند حالت کوانتومی، برهم‌نهی و احتمال اهمیت دارند. بسیاری از فناوری‌های امروزی ریشه در اصول کوانتومی دارند."}, {"title": "نسبیت", "cat": "فیزیک", "lead": "نظریه‌های نسبیت رابطه میان فضا، زمان، حرکت و گرانش را توضیح می‌دهند.", "body": "نسبیت خاص درباره حرکت و سرعت‌های بسیار بالا است و نسبیت عام گرانش را با هندسه فضا-زمان توضیح می‌دهد."}, {"title": "DNA", "cat": "زیست‌شناسی", "lead": "DNA مولکولی است که اطلاعات ژنتیکی بسیاری از جانداران را ذخیره می‌کند.", "body": "DNA از نوکلئوتیدها ساخته شده و ترتیب آن‌ها اطلاعات ژنتیکی را رمزگذاری می‌کند. سلول‌ها از این اطلاعات برای ساخت پروتئین‌ها و تنظیم فرایندهای زیستی استفاده می‌کنند."}, {"title": "سلول", "cat": "زیست‌شناسی", "lead": "سلول کوچک‌ترین واحد ساختاری و عملکردی بسیاری از جانداران است.", "body": "سلول‌ها انواع گوناگونی دارند. سلول‌های گیاهی و جانوری هر دو غشا و ماده ژنتیکی دارند، اما ساختارها و اندامک‌های آن‌ها در بخش‌هایی متفاوت است."}, {"title": "آتشفشان", "cat": "زمین‌شناسی", "lead": "آتشفشان ساختاری است که مواد داغ و گازهای درون زمین می‌توانند از آن به سطح برسند.", "body": "فعالیت آتشفشانی در شکل‌گیری برخی سنگ‌ها و چشم‌اندازها نقش دارد و مطالعه آن به شناخت فرایندهای درونی زمین کمک می‌کند."}, {"title": "زلزله", "cat": "زمین‌شناسی", "lead": "زلزله لرزش زمین بر اثر آزاد شدن ناگهانی انرژی در پوسته یا بخش‌های بالایی زمین است.", "body": "بسیاری از زمین‌لرزه‌های مهم به حرکت گسل‌ها مربوط‌اند. دانشمندان با لرزه‌نگارها امواج زمین‌لرزه را ثبت و تحلیل می‌کنند."}, {"title": "هوش مصنوعی", "cat": "فناوری", "lead": "هوش مصنوعی مجموعه‌ای از روش‌ها برای ساخت سامانه‌هایی است که می‌توانند وظایفی مانند تشخیص الگو و پردازش زبان را انجام دهند.", "body": "یادگیری ماشین یکی از شاخه‌های مهم هوش مصنوعی است. در آن سامانه‌ها با استفاده از داده‌ها الگوهایی را یاد می‌گیرند و برای پیش‌بینی یا تصمیم‌گیری به کار می‌برند."}];
+const q=document.getElementById('q'), results=document.getElementById('results');
+function search(){
+ const s=q.value.trim().toLowerCase(); results.innerHTML='';
+ if(!s)return;
+ const found=data.map((x,i)=>({...x,i})).filter(x=>(x.title+' '+x.cat+' '+x.lead).toLowerCase().includes(s)).slice(0,10);
+ if(!found.length){results.innerHTML='<div class="result">نتیجه‌ای پیدا نشد.</div>';return;}
+ results.innerHTML=found.map(x=>`<a class="result" href="#article" onclick="openArticle(${x.i});return false"><b>${x.title}</b><br><small>${x.cat}</small></a>`).join('');
+}
+function openArticle(i){
+ const x=data[i];
+ document.getElementById('topics').style.display='none';
+ document.getElementById('about').style.display='none';
+ document.getElementById('reader').style.display='block';
+ document.getElementById('article').innerHTML=`<span class="tag">${x.cat}</span><h1>${x.title}</h1><p>${x.lead}</p><h2>معرفی</h2><p>${x.body}</p><h2>نکات مهم</h2><p>علم با مشاهده، اندازه‌گیری، آزمایش، تحلیل داده‌ها و بررسی دوباره نتایج پیشرفت می‌کند. برای مطالعه دقیق‌تر هر موضوع باید به منابع علمی معتبر مراجعه کرد.</p><h2>ادامه یادگیری</h2><p>از دکمه برگشت استفاده کن و موضوع علمی دیگری را در دانش‌نما جستجو کن.</p>`;
+ window.scrollTo(0,0);
+}
+function closeArticle(){
+ document.getElementById('reader').style.display='none';
+ document.getElementById('topics').style.display='block';
+ document.getElementById('about').style.display='block';
+}
+</script>
+</body>
+</html>
